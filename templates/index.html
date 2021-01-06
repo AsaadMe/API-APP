@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>API</title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='app1.css') }}" />
+  </head>
+  <body id="page">
+  
+	
+  
+		<div class="row">
+			<div class="column">
+				<img src="{{ url_for('static', filename='p1.png') }}">
+				<p>Happy</p> 
+				<p>{{ happy }}%</p>
+			</div>
+			<div class="column">
+				<img src="{{ url_for('static', filename='p2.png') }}">
+				<p>Angry</p>
+				<p>{{ angry }}%</p>
+			</div>
+			<div class="column">
+				<img src="{{ url_for('static', filename='p3.png') }}">
+				<p>Excited</p>
+				<p>{{ excited }}%</p>
+			</div>
+			<div class="column">
+				<img src="{{ url_for('static', filename='p4.png') }}">
+				<p>Sad</p>
+				<p>{{ sad }}%</p>
+			</div>
+			<div class="column">
+				<img src="{{ url_for('static', filename='p5.jpg') }}">
+				<p>Fear</p>
+				<p>{{ fear }}%</p>
+			</div>
+			<div class="column">
+				<img src="{{ url_for('static', filename='p6.jpg') }}">
+				<p>Bored</p>
+				<p>{{ bored }}%</p>
+			</div>
+		</div>
+	
+	
+		<form id="form" method="POST">
+			Enter Spotify URI: <input name="text" size="40" placeholder="spotify:playlist:6oD9I87DIoZLg96JUrqVIu">
+			<input type="submit">
+		</form>
+	
+  </body>
+</html>
