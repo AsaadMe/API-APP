@@ -1,11 +1,12 @@
 import requests
 import json
 import apispot
+import os
 
 def get_lyrics(spot_id):
 
     tracks = apispot.get_tracks(str(spot_id))
-    key = "89926f1057d51356479ad203a1fe1ca6"
+    key = os.getenv("MUSIXMATCH_TOKEN")
     all_lyrics = ""
     c = 0
 
