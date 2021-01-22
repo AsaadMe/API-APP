@@ -1,10 +1,11 @@
 import requests
 import json
+import os
 
 def get_tracks(spot_id):
           
     payload = {"grant_type":"client_credentials"}
-    header = {"Authorization":"Basic OTJlZmUzMTBjZWMwNDg1ODkxYzkyM2MxZmY4MWMwNmM6NmM0YWM4ZjkyYjZiNDYwMjk1N2IwZjdkN2RjMDQyNjA="}
+    header = {"Authorization":os.getenv("SPOTIFY_TOKEN")}
 
     r = requests.post('https://accounts.spotify.com/api/token', data=payload, headers=header)
 
