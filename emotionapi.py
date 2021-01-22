@@ -1,12 +1,13 @@
 import requests
 import json
 import lyricapi
+import os
 
 def get_emotions(spot_id):
     
     text = lyricapi.get_lyrics(spot_id)
  
-    api_key = "zPjjWsESahr9XmEodCVXJ2A9AwEBgRnj0ggAR5d6FO8"
+    api_key = os.getenv("EMOTION_TOKEN")
 
     response = requests.post("https://apis.paralleldots.com/v4/emotion", data={ "api_key": api_key, "text":text})
     
