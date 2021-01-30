@@ -1,8 +1,8 @@
 # API-APP
 
-Submit a spotify playlist URI and get it's general emotional feeling.
+Submit a spotify playlist URI and get its general emotional feeling.
 
-It is built in composition of follow APIs:
+It is built out of the composition of following APIs:
 
 - [Spotify](https://www.spotify.com/us/) API to get songs of the playlist.
 
