@@ -27,7 +27,7 @@ class Result(db.Model):
 def index():
     init = '0'
     if request.method == 'POST':
-        spotid = request.form['text'][17:]
+        spotid = request.form['text']
         em = emotionapi.get_emotions(spotid)
         
         if em == "Daily Limit Exceeded.":

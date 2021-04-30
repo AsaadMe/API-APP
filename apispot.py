@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import re
 
 def get_tracks(spot_id):
           
@@ -11,7 +12,7 @@ def get_tracks(spot_id):
 
     token = r.json()["access_token"]
 
-    playlist_id = spot_id
+    playlist_id = re.findall(r"(?<=playlist/)\w*",spot_id)[0]
     
     url = 'https://api.spotify.com/v1/playlists/'+playlist_id+'/tracks'
     p = 'Bearer '+ token
@@ -48,5 +49,3 @@ def get_tracks(spot_id):
         #file.write(str(tracks_list))
         
     return tracks_list
-            
-
