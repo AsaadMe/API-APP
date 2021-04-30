@@ -19,19 +19,19 @@ def get_lyrics(spot_id):
         r1 = requests.get("https://api.musixmatch.com/ws/1.1/track.search",params=par1)
     
         if r1.json()["message"]["header"]["available"] != 0 or r1.json()["message"]["header"]["status_code"] != 200:
+            if r1.json()["message"]["body"]["track_list"]:
+                num = r1.json()["message"]["body"]["track_list"][0]["track"]["track_id"]
+
+                par2 = {"apikey":key, "track_id":str(num)}
+
+                r2 = requests.get("https://api.musixmatch.com/ws/1.1/track.lyrics.get",params=par2)
+
+
+                lyric_raw = r2.json()["message"]["body"]["lyrics"]["lyrics_body"]
+                lyric = lyric_raw.replace("\n"," ")
+                ind = lyric.find("...")
+                lyric = lyric[:ind-1]
         
-            num = r1.json()["message"]["body"]["track_list"][0]["track"]["track_id"]
-
-            par2 = {"apikey":key, "track_id":str(num)}
-
-            r2 = requests.get("https://api.musixmatch.com/ws/1.1/track.lyrics.get",params=par2)
-
-
-            lyric_raw = r2.json()["message"]["body"]["lyrics"]["lyrics_body"]
-            lyric = lyric_raw.replace("\n"," ")
-            ind = lyric.find("...")
-            lyric = lyric[:ind-1]
-    
-            all_lyrics += lyric
+                all_lyrics += lyric
     
     return all_lyrics
